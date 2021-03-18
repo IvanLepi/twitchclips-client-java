@@ -12,7 +12,7 @@
   <h1>This Twitch feed shows most popular CLIPS right now</h1>
   <div class="container">
     <div class="row row-cols-4">
-      <th:block th:each="clip : ${clipsfeed}">
+      <th:block th:each="clip : ${gamesfeed}">
         <div class="card" style="width: 18rem;">
           <img th:src="${clip.thumbnail_url}" class="card-img-top img-fluid">
           <div style="padding-right:20px">

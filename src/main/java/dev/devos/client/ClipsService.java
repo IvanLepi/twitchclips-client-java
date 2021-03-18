@@ -1,5 +1,6 @@
 package dev.devos.client;
 import java.util.List;
+import java.util.Optional;
 import java.util.ArrayList;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,13 @@ public class ClipsService {
     List<Clip> myClips = new ArrayList<Clip>();
         
     WebClient webClient = WebClient.create("http://localhost:8080/clips");
-   
-    public List<Clip> getClips() {
+    WebClient gameClient;
+    public List<Clip> getClips(Optional<String> game_id) {
         try {
-            
+            if(game_id.isPresent()){
+                gameClient = WebClient.create("http://localhost:8080/clips?game_id=" + game_id.get());
+                myClips = webClient.get().retrieve().bodyToMono(Feed.class).block().getData();
+            }
             myClips = webClient.get().retrieve().bodyToMono(Feed.class).block().getData();
     
         } catch (Exception e) {
