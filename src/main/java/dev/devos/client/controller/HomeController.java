@@ -22,16 +22,22 @@ public class HomeController {
         this.clipsService = clipsService;
     }
 
-    @GetMapping("/clips")
+    @GetMapping("/")
     public String clipshome(Model model) {
-        model.addAttribute("clipsfeed", clipsService.getClips(Optional.empty()));
+        model.addAttribute("clipsfeed", clipsService.getClips(Optional.empty(), Optional.empty()));
         return "clipshome";
     }
 
     @GetMapping("/game")
     public String game(@RequestParam(required = true) String game_id, Model model) {
-        model.addAttribute("gamesfeed", clipsService.getClips(Optional.of(game_id)));
-        return "gameshome";
+        model.addAttribute("clipsfeed", clipsService.getClips(Optional.of(game_id), Optional.empty()));
+        return "clipshome";
+    }
+
+    @GetMapping("/channel")
+    public String channel(@RequestParam(required = true) String broadcaster_id, Model model) {
+        model.addAttribute("clipsfeed", clipsService.getClips(Optional.empty(), Optional.of(broadcaster_id)));
+        return "clipshome";
     }
     
 }
