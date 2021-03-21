@@ -1,4 +1,4 @@
-package dev.devos.client;
+package dev.devos.client.model;
 
 import java.util.List;
 

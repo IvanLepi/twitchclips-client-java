@@ -1,5 +1,5 @@
 package dev.devos.client.controller;
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,18 +7,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import dev.devos.client.ClipsService;
+import dev.devos.client.service.ClipsService;
 import org.springframework.stereotype.Controller;
-
 
 @Controller
 public class HomeController {
 
-     
     ClipsService clipsService;
 
     @Autowired
-    HomeController(ClipsService clipsService){
+    HomeController(ClipsService clipsService) {
         this.clipsService = clipsService;
     }
 
@@ -39,5 +37,5 @@ public class HomeController {
         model.addAttribute("clipsfeed", clipsService.getClips(Optional.empty(), Optional.of(broadcaster_id)));
         return "clipshome";
     }
-    
+
 }
