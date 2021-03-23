@@ -3,28 +3,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-  <title>Clips Page</title>
+  <title>Video Page</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
 </head>
 
 <body>
   <div class="container">
-    <div class="row row-cols-4">
-      <th:block th:each="clip : ${clipsfeed}">
-        <div class="card" style="width: 18rem;">
-          <a th:href="@{/video?embed_url={embed}(embed=${clip.embed_url})}">
-            <img th:src="${clip.thumbnail_url}" class="card-img-top img-fluid">
-          </a>  
+    <div class="row">
+      <div class="col-md-8">
+                 
+            <iframe style="height:100%; width:100%;" th:src="${videosfeed} + '&parent=localhost'"/>
+      </div>
+      <div class="row col-md-4">
+        <!-- <th:block th:each="video : ${videosfeed}">
+        <div class="card">
+          <img th:src="${video.thumbnail_url}" class="card-img-top img-fluid">
           <div style="padding-right:20px">
-            <h3 th:text="${clip.title}" style="font-size:16px; margin:12px 0 4px 8px"></h3>
+            <h3 th:text="${video.title}" style="font-size:16px; margin:12px 0 4px 8px"></h3>
             <div style="display: flex; margin-left: 8px">
-              <a  th:text="${clip.broadcaster_name}" th:href="@{/channel?broadcaster_id={id}(id=${clip.broadcaster_id})}" style="padding-right:4px"></a>
-              <a  th:text="playing + ' ' +  ${clip.game_id}" th:href="@{/game?game_id={game_id}(game_id=${clip.game_id})}"></a>
+              <a  th:text="${video.broadcaster_name}" style="padding-right:4px"></a>
+              <a  th:text="${video.view_count} + ' ' + views."></a>
             </div>
           </div>
         </div>
-      </th:block>
+      </th:block> -->
+      </div>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"
