@@ -3,4 +3,7 @@
 ## [Part of Twitch Clips Application](https://github.com/IvanLepi/twitchclips)
 
 For more info look at the more detailed readme at [Twitch Clips Application](https://github.com/IvanLepi/twitchclips)
-todo: implement framework library Bootstrap.
+## TODO
+  * Implement Bootstrap
+  * Code refactoring
+  * Bug testing
