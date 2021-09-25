@@ -10,3 +10,5 @@ For more info look at the more detailed readme at [Twitch Clips Application](htt
   * video page should be like YT with sidebar of related videos
   * Code refactoring
   * Bug testing
+
+![Current look](https://github.com/IvanLepi/twitchclips-client-java/blob/main/screenshot.JPG)
