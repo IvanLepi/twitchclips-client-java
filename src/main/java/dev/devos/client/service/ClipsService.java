@@ -41,4 +41,16 @@ public class ClipsService {
 
         return myClips;
     }
+    public List<Clip> getTrending() {
+        try {
+                webClient = WebClient.create("http://localhost:8080/clips?sort=trending");
+                myClips = webClient.get().retrieve().bodyToMono(Feed.class).block().getData();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        LOG.info("Getting the clips..." + myClips.toString());
+
+        return myClips;
+    }
 }

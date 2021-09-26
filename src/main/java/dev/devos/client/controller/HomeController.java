@@ -52,4 +52,10 @@ public class HomeController {
         return "videopage";
     }
 
+    @GetMapping("/trending")
+    public String trendinghome(Model model) {
+        model.addAttribute("trendingfeed", clipsService.getTrending());
+        return "clipshome";
+    }
+
 }
